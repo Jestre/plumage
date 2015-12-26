@@ -2,7 +2,7 @@
   <a href="{{ SITEURL }}/{{ tag.url }}" rel="tooltip" class="label" data-placement="right" data-original-title="{{ tag.articles }} article{{ 's' if tag.articles > 1 else '' }} with this tag">{{ tag.name }}</a>
 {%- endmacro %}
 
-{% macro render_link_icon(link, label) -%}
+{% macro render_link_icon(link, label, grabicon=False) -%}
   {% set icon = [] %}
   {% set protocol = link.split(':', 1)[0] %}
   {% if protocol == 'mailto' %}

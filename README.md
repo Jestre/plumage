@@ -1,23 +1,29 @@
 Plumage
 =======
 
-Plumage is a theme for [Pelican](http://getpelican.com) 3.2, a static site generator written in Python.
+Plumage is a theme for [Pelican](http://getpelican.com), a static site
+generator written in Python.
 
-I initially created this theme for [my blog](http://kevin.deldycke.com), but now the theme is supposed to be generic enough to have its own repository.
+I initially created this theme for [my blog](http://kevin.deldycke.com), but
+now the theme is supposed to be generic enough to have its own repository.
 
-![Plumage article view](http://github.com/kdeldycke/plumage/raw/master/plumage-article-screenshot.png)
+![Plumage article view
+](https://raw.githubusercontent.com/kdeldycke/plumage/master/plumage-article-screenshot.png)
 
 
 Features
 --------
 
-  * Based on Twitter Bootstrap
+  * Based on [Bootstrap v2](http://getbootstrap.com/2.3.2/)
+  * [Solarized](http://ethanschoonover.com/solarized) pygments syntax
+  highlighting
+  * Javascrip-based, site-wide static search
   * Project template
   * Tags grouped by tiers
-  * External assets (Bootstrap, Jquery, etc...) uses CDN
+  * External assets (Bootstrap, Jquery, etc...) uses [CDNjs
+  ](https://cdnjs.com/about)
   * YouTube links
   * Direct link to edit articles on Github
-  * Pygments syntax highlighting
 
 
 Plugins
@@ -25,40 +31,52 @@ Plugins
 
 Plumage has built-in support for the following plugins:
 
-  * [`neighbors`](https://github.com/getpelican/pelican-plugins/tree/master/neighbors)
-  * [`pdf`](https://github.com/getpelican/pelican-plugins/tree/master/pdf)
-  * [`related_posts`](https://github.com/getpelican/pelican-plugins/tree/master/related_posts)
-  * [`typogrify`](https://github.com/getpelican/pelican-typogrify)
+  * [`tipue_search`
+  ](https://github.com/getpelican/pelican-plugins/tree/master/tipue_search)
+  * [`neighbors`
+  ](https://github.com/getpelican/pelican-plugins/tree/master/neighbors)
+  * [`related_posts`
+  ](https://github.com/getpelican/pelican-plugins/tree/master/related_posts)
+  * [`typogrify`](https://pypi.python.org/pypi/typogrify)
 
 
 Settings
 --------
 
-Plumage can be customized by adding these optionnal parameters to your `pelicanconf.py` file:
+Plumage can be customized by adding these optionnal parameters to your
+`pelicanconf.py` file:
 
-  * `SITE_THUMBNAIL`: Site's thumbnail URL as displayed in the header. Should be a square image of at least 80x80 pixels.
-  * `SITE_THUMBNAIL_TEXT`: Text displayed behind site's thumbnail.
-  * `SITESUBTITLE`: Set the subtitle from the site's header.
-  * `MENUITEMS`: A list of tuples (Title, URL) for additional menu items to appear at the beginning of the main menu.
-  * `GOOGLE_SEARCH`: [Google's Custom Search Engine](https://www.google.com/cse/) ID (e.g. `partner-pub-0123456789098765:0123456789`) to activate blog specific search.
-  * `LEFT_SIDEBAR`, `RIGHT_SIDEBAR`: HTML content to put as-is in the left or right sidebar.
-  * `ARTICLE_EDIT_LINK`: Generate an edit link besides each article. Can use `%(slug)s` to include dynamic article's slug in the link.
-  * `PDF_PROCESSOR`: Set this to 'True' if you want to have a 'Download the .pdf' link created, if you are using the PDF plugin.
-  * `SOCIAL`: A list of tuples (Title, URL) to appear in the first columns of the footer.
-  * `SOCIAL_TITLE`: Overide the title of the first column of the footer. Default value: `Social`.
-  * `LINKS`: A list of tuples (Title, URL) for links to appear in the second column of the footer.
-  * `LINKS_TITLE`: Overide the title of the second column of the footer. Default value: `Links`.
-  * `COPYRIGHT`: Additional copyright statement to add in the third column of the footer.
-  * `DISCLAIMER`: Overide the Disclaimer notice that gets displayed at the fourth column of the footer.
-  * `DISQUS_SITENAME`: Disqus sitename identifier.
-  * `GOOGLE_ANALYTICS`: Google Analytics unique identifier (e.g. `UA-XXXX-YYYY`).
-  * `GOOGLE_ANALYTICS_DOMAIN`: Add the `_setDomainName` variable to Google Analytics' Javascript code.
-  * `PIWIK_URL`: Base URL for the intended [Piwik](http://piwik.org) installation.
-  * `PIWIK_SITE_ID`: Specifies the ID of the site being tracked by Piwik.
+Setting name | Default value | Description
+:--- |:--- |:---
+`ARTICLE_EDIT_LINK` | | Generate an edit link besides each article. Can use `%(slug)s` to include dynamic article's slug in the link.
+`COPYRIGHT` | | Additional copyright statement to add in the third column of the footer.
+`DISCLAIMER` | | Overide the Disclaimer notice that gets displayed at the fourth column of the footer.
+`DISQUS_SITENAME` | | Pelican can handle Disqus comments. Specify the Disqus sitename identifier here.
+`GOOGLE_ANALYTICS` | | Set to `UA-XXXX-YYYY` to activate Google Analytics.
+`GOOGLE_SEARCH` | | [Google's Custom Search Engine](https://www.google.com/cse/) ID (e.g. `partner-pub-0123456789098765:0123456789`) to activate blog specific search.
+`GRAB_ICONS` | `False` | Fetch link's icons from the grabicon.com web service.
+`LEFT_SIDEBAR` | | HTML content to put as-is in the left sidebar.
+`LINKS_WIDGET_NAME` | `"Links"` | Allows override of the name of the links widget.
+`LINKS` | | A list of tuples (Title, URL) for links to appear in the second column of the footer.
+`MENUITEMS`| | A list of tuples (Title, URL) for additional menu items to appear at the beginning of the main menu.
+`PIWIK_SITE_ID` | | ID for the monitored website. You can find the ID in the Piwik admin interface > Settings > Websites.
+`PIWIK_SSL_URL` | | If the SSL-URL differs from the normal Piwik-URL you have to include this setting too. (optional)
+`PIWIK_URL` | | URL to your [Piwik](http://piwik.org) server - without `http://` at the beginning.
+`RIGHT_SIDEBAR` | | HTML content to put as-is in the right sidebar.
+`SITESUBTITLE` | | A subtitle to appear in the header.
+`SITE_THUMBNAIL_TEXT` | | Text displayed behind site's thumbnail.
+`SITE_THUMBNAIL` | | Site's thumbnail URL as displayed in the header. Should be a square image of at least 80x80 pixels.
+`SOCIAL_WIDGET_NAME` | `"Social"` | Allows override of the name of the “social” widget.
+`SOCIAL` | | A list of tuples (Title, URL) to appear in the first columns of the footer.
+`TIPUE_SEARCH` | `False` | Activate [Tipue Search](http://www.tipue.com/search) (javascript search engine) into the site. Requires the [`tipue_search`](https://github.com/getpelican/pelican-plugins/tree/master/tipue_search) plugin.
 
-Most of these [parameters are similar to `notmyidea`'s](http://docs.getpelican.com/en/latest/settings.html#themes) (Pelican's default theme). For usage example, please have a look into [my own `pelicanconf.py`](https://github.com/kdeldycke/kevin-deldycke-blog/blob/master/pelicanconf.py).
+Most of these [parameters are similar to `notmyidea`'s
+](http://docs.getpelican.com/en/latest/settings.html#themes) (Pelican's default
+theme). For usage example, please have a look into [my own `pelicanconf.py`
+](https://github.com/kdeldycke/kevin-deldycke-blog/blob/master/pelicanconf.py).
 
-The theme is also sensible to this list of [standard Pelican parameters](http://docs.getpelican.com/en/latest/settings.html):
+The theme is also sensible to this list of [standard Pelican parameters
+](http://docs.getpelican.com/en/latest/settings.html):
 
   * `ARCHIVES_SAVE_AS`
   * `AUTHOR_SAVE_AS`
@@ -84,10 +102,6 @@ The theme is also sensible to this list of [standard Pelican parameters](http://
 TODO
 ----
 
-  * Hack google search to integrate search result within theme design ?
-  * Replace Google custom search by https://swiftype.com/ ? Or better, static search:
-      * http://ralsina.com.ar/weblog/posts/standalone-search-in-nikola.html
-      * https://news.ycombinator.com/item?id=6958735
   * Use a big carousel for front-page articles (ex: http://twitter.github.com/bootstrap/examples/carousel.html ) + a bit of http://srobbin.com/jquery-plugins/backstretch/ to keep aspect-ratio
   * Check some web-dev essentials:
       * http://webdevchecklist.com/
@@ -147,8 +161,25 @@ Contributors
 Changelog
 ---------
 
-* **0.5.dev** (unreleased)
+* **0.7.dev** (unreleased)
+  * Add option to bypass grabicon.com web service.
+  * Add static search based on Tipue Search.
+  * Add new `LINKS_WIDGET_NAME` and `SOCIAL_WIDGET_NAME` options to mirror
+    upcoming Pelican 3.7.
+  * Align Piwik and Google analytics code to Pelican's `notmyidea` theme.
+  * Upgrade to jQuery 2.1.4.
+  * Upgrade to Masonry 3.3.2.
+  * Remove `PDF_PROCESSOR` option now that plugin is out of core.
+
+* **0.6** (2015-05-30)
+  * Fix favicon rendering.
+
+* **0.5** (2015-05-25)
   * Add support for piwik.
+  * Upgrade to jQuery 2.1.3.
+  * Upgrade to Masonry 3.3.0.
+  * Upgrade to fitvids 1.1.0.
+  * Upgrade to Magnific Popup 1.0.0.
 
 * **0.4** (2014-02-15)
   * Allow grouping of projects.
@@ -157,7 +188,9 @@ Changelog
   * Sort out inactive projects to the bottom of the project list.
   * Drop support of old browsers.
   * Move from jQuery 1.x to 2.x.
-  * Use [latest Google Analytics](https://developers.google.com/analytics/devguides/collection/upgrade/) tracking code.
+  * Use [latest Google Analytics
+  ](https://developers.google.com/analytics/devguides/collection/upgrade/)
+  tracking code.
   * Upgrade to Font Awesome 4.0.3.
   * Upgrade to Masonry 3.1.2.
   * Upgrade to ImagesLoaded 3.0.4.
@@ -165,7 +198,8 @@ Changelog
 
 * **0.3** (2013-08-16)
   * Add auto-zoom of images based on Magnific Popup.
-  * Let the content take the available width if there is no right or left sidebars.
+  * Let the content take the available width if there is no right or left
+  sidebars.
   * Add an dynamic feed link in footer.
   * Do not wrap code in code blocks.
   * Fix code highlight for older Pelican versions.
@@ -180,35 +214,18 @@ Changelog
 
 * **0.1** (2013-07-07)
   * Theme has now a name: Plumage.
-  * Move the theme out of my [blog repository](https://github.com/kdeldycke/kevin-deldycke-blog) to its own repository.
+  * Move the theme out of my [blog repository
+  ](https://github.com/kdeldycke/kevin-deldycke-blog) to its own repository.
   * Theme is now generic enough. Update TODO-list accordingly.
 
 * **0.0** (2012-12-23)
   * First commit.
 
 
-Pushing Plumage to Pelican project
-----------------------------------
-
-This is just a note to myself on how to submit new stable releases of Plumage to [Pelican's theme repository](https://github.com/getpelican/pelican-themes).
-
-    $ git clone --recursive https://github.com/kdeldycke/pelican-themes
-    $ cd pelican-themes/plumage/
-    $ git checkout 0.X
-    $ cd ..
-    $ git add ./plumage
-    $ git commit -m "Update Plumage to version 0.X"
-    $ git push
-    $ cd ..
-    $ rm -rf ./pelican-themes
-
-Now [create a Pull Request](https://github.com/kdeldycke/pelican-themes/compare/getpelican:master...master) from GitHub web interface, and submit it for merging to the original repository.
-
-
 License
 -------
 
-The content of this repository is copyrighted (c) 2012-2014 Kevin Deldycke.
+The content of this repository is copyrighted (c) 2012-2015 Kevin Deldycke.
 
 This code is free software: you can redistribute it and/or modify it under the
 terms of the GNU General Public License as published by the Free Software
